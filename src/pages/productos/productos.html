@@ -6,19 +6,30 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-toolbar>
     <ion-title>Lista de productos</ion-title>
-  </ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click) = "clickAgregar()">
+        <ion-icon name = "cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 
 </ion-header>
 
 
-<ion-content padding>
-<ion-card (click) = "clickproductos(producto.id)">
-  <ion-item>
-    <ion-col>
-
-    </ion-col>
+<ion-content padding style = "background-color: #2D2D2D">
+<ion-card  *ngFor = "let producto of productos">
+  <ion-item style = "background-color: #B5B5B5">
+    <!-- <ion-col> -->
+      <img [src] = producto.imagenp>
+    <!-- </ion-col> -->
+    <h2 (click) = "clickproductos(producto)">
+      {{producto.nproducto}}
+    </h2>
+    <p>
+      {{producto.precio}}
+    </p>
   </ion-item>
 </ion-card>
 </ion-content>

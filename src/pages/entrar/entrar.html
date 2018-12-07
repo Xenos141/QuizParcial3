@@ -13,6 +13,25 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding style = "background-color: #565B5B">
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Username</ion-label>
+      <ion-input [(ngModel)]="mail" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Telephone</ion-label>
+      <ion-input [(ngModel)]="telefono" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>E-mail</ion-label>
+      <ion-input [(ngModel)]="usuario" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Password</ion-label>
+      <ion-input [(ngModel)]="contrasena" type="password"></ion-input>
+    </ion-item>
+    
+  </ion-list>
+  <button ion-button (click)="Agregar()">Register</button>
 </ion-content>

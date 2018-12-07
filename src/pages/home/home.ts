@@ -14,7 +14,7 @@ export class HomePage {
   entrar = EntrarPage
   usuario1 = "";
   contrasena1 = "";
-  Usuarios = [{ usuario1: "", contrasena1: "" }];
+  Usuarios = [{ usuario1: "", contrasena1: "", carrito1: [] }];
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
     public storage: Storage) {
@@ -22,13 +22,14 @@ export class HomePage {
     this.storage.keys()
       .then(keys => {
         console.log(keys)
-        if (keys.some(key => key == 'usuarios')) {
-          this.storage.get('usuarios')
+        if (keys.some(key => key == 'Usuarios')) {
+          this.storage.get('Usuarios')
             .then(Usuarios => {
               this.Usuarios = JSON.parse(Usuarios);
             })
         }
       })
+      //this.storage.clear()
   }
   Nuevo() {
     this.navCtrl.push(this.entrar, { usuarios: this.Usuarios });
@@ -40,7 +41,7 @@ export class HomePage {
 
     if (index > 0) {
       if (index == index2) {
-        this.navCtrl.push(this.productos);
+        this.navCtrl.push(this.productos,{carritoU: this.Usuarios[index].carrito1, Usuario: this.Usuarios[index], Usuarios: this.Usuarios});
       }
       else {
         const alert = this.alertCtrl.create({

@@ -7,12 +7,35 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Info</ion-title>
+    <ion-title>{{producto.nproducto}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding style = "background-color: #7A7D7D">
+  <img [src]= producto.imagenp>
+  <h5> {{producto.vendedor}} </h5>
+  <h6> {{producto.precio}} </h6>
+  <h6> {{producto.fecha}} </h6>
+  <button ion-button (click) = "acarrito()">Agregar a carrito</button>
+  <h6> Reseñas: </h6>
 
+  
+  
+
+  <ion-card *ngFor = "let r of producto.resenas"  style = "background-color: #B5B5B5">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../assets/Avatar.jpg">
+      </ion-avatar>
+      <h2>{{r.nombre}}</h2>
+      <p>{{r.fechar}}</p>
+    </ion-item>
+  
+    <ion-card-content>
+      <p>{{r.texto}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
